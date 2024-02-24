@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Input from "~/components/Input";
+import { login } from "../actions";
 
 export default function SignInPage() {
   return (
@@ -10,18 +11,18 @@ export default function SignInPage() {
             Acessar o sistema
           </h2>
 
-          <form action="#" method="POST" className="mt-10">
+          <form className="mt-10">
             <div className="mt-2">
-              <Input leftLabel="Email" type="email" />
+              <Input name="email" leftLabel="Email" type="email" />
             </div>
             <div className="mt-2">
-              <Input leftLabel="Senha" type="password" />
+              <Input name="password" leftLabel="Senha" type="password" />
             </div>
             <Link href="/forgot-password" className="btn btn-link px-0">
               Esqueceu sua senha?
             </Link>
 
-            <button type="submit" className="btn btn-primary mt-4 w-full">
+            <button formAction={login} className="btn btn-primary mt-4 w-full">
               Entrar
             </button>
           </form>
